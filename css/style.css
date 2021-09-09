@@ -50,13 +50,9 @@ img {
 }
 .main-nav a {
     font-size: 1.5rem;
-    color: white;
-    /* padding: 1rem 2rem; */
-    /* border: 2px solid; */
-}
-nav {
-  background-color: #432;
-  height: 20%;
+    color: #432;
+    padding: 1rem 2rem;
+    border: 2px solid;
 }
 .main-nav a:hover {
     color: lightcoral;
@@ -76,10 +72,6 @@ nav {
   width: 200px;
   height: 100%;
   text-align: left;
-}
-
-#hamburger ul {
-  list-style: none;
 }
 
 .show {
@@ -257,11 +249,6 @@ iframe {
 }
 
 /* SNS */
-#sns-zentai {
-  display: flex;
-  justify-content: space-between;
-}
-
 #sns {
     padding: 4% 0;
     margin: 5%;
@@ -291,8 +278,8 @@ footer p {
 }
 
 
-/* レスポンシブ 小画面 */
-@media (max-width:640px) {
+/* レスポンシブ */
+@media (max-width:600px) {
 
   .img {
     width: 100px;
@@ -310,12 +297,11 @@ footer p {
       margin-right: 10px;
     }
 
-    .show {
+    /* .show {
       transform: translate3d(-200px, 0, 0);
-    }
+    } */
 
-  #sns-zentai {
-    display: flex;
+  #sns .wrapper {
     flex-direction: column;
   }
 
