@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SS Bakery</title>
+  <meta name="description" content="無添加で安心のこだわりパンが毎日食べれる！グルテンフリーパンもあります。">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- CSSの取り込み -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Google fonts読み込み -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+SC&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Java　Script読み込み -->
+  <!-- <script type="text/javascript" src="./javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+</head>
+
+<body>
+  <div id="except_hamburger">
+    <header class="page-header wrapper">
+      <div class="title">
+        <div>
+          <h1><a href="index.html"><img class="logo-copy" src="images/logo-copy.png" alt="SS Bakeryホーム"></a></h1>
+        </div>
+
+        <div class="hamburger" id="open_nav">
+          <img src="images/hamburger.png" alt="三本線メニュー">
+        </div><!-- /open_nav -->
+      </div><!-- /title -->
+
+      <!-- メニューバー -->
+      <nav id="pcsize-nav">
+        <ul class="main-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="access.html">ACCESS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="home-header wrapper">
+      <div id="slide">
+        <!-- <img class="logo" src="images/logo.png" alt="SS Bakeryホーム"> -->
+        <img class="logo" id="mypic" src="images/logo_baguette.jpg">
+        <!-- スライドショー -->
+        <img src="images/shop.jpg" alt="店内">
+        <img src="images/breads.jpg" alt="パン">
+      </div>
+    </div>
+
+    <div class="home-content wrapper">
+      <h2 class="concept">SS Bakeryのこだわり</h2>
+      <p>
+        SS Bakeryのパンは、一つ一つの商品が味にこだわりをもって作られています。<br>
+        店主が一つ一つ手間暇かけて、納得のいったものだけを提供しています。
+      </p>
+    </div>
+
+    <section id="sns wrapper">
+      <div id="sns-zentai">
+        <div class="sns-box">
+          <h3 class="sub-title">Facebook</h3>
+          <iframe class="fb-timeline"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEssABagel1976%2F&tabs=timeline&width=340&height=315&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+            width="340" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+
+        <div class="sns-box">
+          <h3 class="sub-title">Twitter</h3>
+          <a class="twitter-timeline" data-height="315"
+            href="https://twitter.com/bakery_koln?ref_src=twsrc%5Etfw">Tweets by bakery_koln</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div class="sns-box">
+          <h3 class="sub-title">Youtube</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/etNu1Qt89co" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section> <!-- /#sns -->
+  </div>
+
+  <!-- hamburger menu -->
+  <nav id="hamburger">
+    <div class="logo"><img src="images/logo-copy.png" alt="ロゴ"> </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="access.html">Access</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    'use strict';
+    console.log('JS is working');  // js機能してるか確認用
+
+    // slide show -header-
+    $(function () {
+      var page = 0;
+      var lastPage = parseInt($("#slide img").length - 1);
+      $("#slide img").css("display", "none");
+      $("#slide img").eq(page).css("display", "block");
+      function changePage() {
+        $("#slide img").fadeOut(1000);
+        $("#slide img").eq(page).fadeIn(1000);
+      };
+      var Timer;
+      function startTimer() {
+        Timer = setInterval(function () {
+          if (page === lastPage) {
+            page = 0;
+            changePage();
+          } else {
+            page++;
+            changePage();
+          };
+        }, 5000);
+      }
+      function stopTimer() {
+        clearInterval(Timer);
+      }
+      startTimer();
+    });
+
+
+    // hambergur menu
+    // $(function () {
+    //   $('#open_nav').on('click', function () {
+    //     addClass('show')
+    //   });
+    // });
+
+    $(document).ready(function () {
+      $('#open_nav').click(function () {
+        // ハンバーガーメニューがクリックされたら、画面の一番上にもってきて（ｚ軸）✖マークに変える（attr）
+        // $('#open_nav').css('transform', 'translate3d')
+
+        $('#open_nav, #hamburger').toggleClass('show');
+      });
+    });
+
+  </script>
+</body>
+
+</html>
